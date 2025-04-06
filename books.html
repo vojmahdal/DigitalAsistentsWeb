@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShop - Browse Books</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Include navigation -->
+    <div id="nav-placeholder"></div>
+
+    <main class="books-page">
+        <section class="hero">
+            <h1>Browse Our Books</h1>
+            <p>Discover your next favorite read</p>
+        </section>
+
+        <section class="filters">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search books...">
+            </div>
+            <div class="category-filter">
+                <label for="categoryFilter">Category</label>
+                <select id="categoryFilter">
+                    <option value="all">All Categories</option>
+                    <option value="Fiction">Fiction</option>
+                    <option value="Science">Science</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Children">Children</option>
+                    <option value="Business">Business</option>
+                    <option value="Psychology">Psychology</option>
+                    <option value="History">History</option>
+                    <option value="Technology">Technology</option>
+                </select>
+            </div>
+            <div class="sort-filter">
+                <label for="sortFilter">Sort By</label>
+                <select id="sortFilter">
+                    <option value="title">Title</option>
+                    <option value="price-asc">Price: Low to High</option>
+                    <option value="price-desc">Price: High to Low</option>
+                    <option value="rating">Rating</option>
+                    <option value="date">Newest First</option>
+                </select>
+            </div>
+            <div class="price-filter">
+                <label for="priceRange">Max Price: $<span id="priceValue">50</span></label>
+                <input type="range" id="priceRange" min="0" max="100" value="50" step="1">
+            </div>
+            <div class="rating-filter">
+                <label for="ratingFilter">Minimum Rating</label>
+                <select id="ratingFilter">
+                    <option value="all">All Ratings</option>
+                    <option value="4">4+ Stars</option>
+                    <option value="3">3+ Stars</option>
+                    <option value="2">2+ Stars</option>
+                    <option value="1">1+ Stars</option>
+                </select>
+            </div>
+            <div class="filter-buttons">
+                <button id="applyFilters" class="apply-button">Apply Filters</button>
+                <button id="resetFilters" class="reset-button">Reset</button>
+            </div>
+        </section>
+
+        <section class="books-section">
+            <div id="loadingIndicator" class="loading-indicator">
+                Loading books...
+            </div>
+            <div id="noResultsMessage" class="no-results" style="display: none;">
+                No books found matching your criteria. Try adjusting your filters.
+            </div>
+            <div id="booksGrid" class="books-grid">
+                <!-- Book cards will be dynamically added here -->
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BookShop</h3>
+                <p>Your one-stop destination for all your reading needs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@bookshop.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BookShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="books.js"></script>
+    <script>
+        // Load navigation
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+                // Initialize auth after navigation is loaded
+                if (typeof initAuth === 'function') {
+                    initAuth();
+                }
+            });
+    </script>
+</body>
+</html> 

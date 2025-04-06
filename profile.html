@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile - BookShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>BookShop</h1>
+            </div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="index.html#books">Books</a>
+                <a href="index.html#categories">Categories</a>
+                <a href="index.html#about">About</a>
+                <a href="index.html#contact">Contact</a>
+            </div>
+            <div class="nav-icons">
+                <a href="index.html#search"><i class="fas fa-search"></i></a>
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                <div class="auth-links">
+                    <!-- Auth links will be dynamically added here -->
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="profile-page">
+        <div class="profile-container">
+            <div class="profile-sidebar">
+                <div class="profile-image">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <h2 id="userName"></h2>
+                <p id="userEmail"></p>
+                <nav class="profile-nav">
+                    <a href="#personal-info" class="active">Personal Information</a>
+                    <a href="#orders">My Orders</a>
+                    <a href="#wishlist">My Wishlist</a>
+                    <a href="#reviews">My Reviews</a>
+                    <a href="#newsletter">Newsletter</a>
+                </nav>
+            </div>
+            <div class="profile-content">
+                <section id="personal-info" class="profile-section active">
+                    <h3>Personal Information</h3>
+                    <form id="profileForm" onsubmit="event.preventDefault(); updateProfile()">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Address</label>
+                            <textarea id="address" name="address"></textarea>
+                        </div>
+                        <button type="submit" class="save-button">Save Changes</button>
+                    </form>
+                </section>
+
+                <section id="orders" class="profile-section">
+                    <h3>My Orders</h3>
+                    <div class="orders-preview">
+                        <!-- Recent orders will be displayed here -->
+                    </div>
+                    <a href="orders.html" class="view-all">View All Orders</a>
+                </section>
+
+                <section id="wishlist" class="profile-section">
+                    <h3>My Wishlist</h3>
+                    <div class="wishlist-preview">
+                        <!-- Wishlist items will be displayed here -->
+                    </div>
+                    <a href="wishlist.html" class="view-all">View All Wishlist Items</a>
+                </section>
+
+                <section id="reviews" class="profile-section">
+                    <h3>My Reviews</h3>
+                    <div class="reviews-preview">
+                        <!-- User's reviews will be displayed here -->
+                    </div>
+                </section>
+
+                <section id="newsletter" class="profile-section">
+                    <h3>Newsletter Preferences</h3>
+                    <form id="newsletterForm" onsubmit="event.preventDefault(); updateNewsletterPreferences()">
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newsletter" name="newsletter">
+                                Subscribe to our newsletter
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="promotions" name="promotions">
+                                Receive promotional offers
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="newReleases" name="newReleases">
+                                Get notified about new releases
+                            </label>
+                        </div>
+                        <button type="submit" class="save-button">Save Preferences</button>
+                    </form>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BookShop</h3>
+                <p>Your one-stop destination for all your reading needs.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#books">Books</a></li>
+                    <li><a href="index.html#categories">Categories</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@bookshop.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BookShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+ 

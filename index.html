@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShop - Your Online Bookstore</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Include navigation -->
+    <div id="nav-placeholder"></div>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Welcome to BookShop</h1>
+                <p>Discover your next favorite book from our extensive collection</p>
+                <a href="books.html" class="btn primary">Browse Books</a>
+            </div>
+        </section>
+
+        <section class="featured-categories">
+            <div class="container">
+                <h2>Featured Categories</h2>
+                <div class="categories-grid">
+                    <a href="books.html?category=Fiction" class="category-card">
+                        <i class="fas fa-book"></i>
+                        <h3>Fiction</h3>
+                        <p>Explore our collection of fiction books</p>
+                    </a>
+                    <a href="books.html?category=Science Fiction" class="category-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3>Science Fiction</h3>
+                        <p>Journey to new worlds</p>
+                    </a>
+                    <a href="books.html?category=Romance" class="category-card">
+                        <i class="fas fa-heart"></i>
+                        <h3>Romance</h3>
+                        <p>Find your next love story</p>
+                    </a>
+                    <a href="books.html?category=Fantasy" class="category-card">
+                        <i class="fas fa-dragon"></i>
+                        <h3>Fantasy</h3>
+                        <p>Enter magical realms</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-books">
+            <div class="container">
+                <h2>Featured Books</h2>
+                <div class="books-grid" id="featuredBooks">
+                    <!-- Books will be loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <section class="why-choose-us">
+            <div class="container">
+                <h2>Why Choose Us</h2>
+                <div class="features-grid">
+                    <div class="feature">
+                        <i class="fas fa-truck"></i>
+                        <h3>Fast Delivery</h3>
+                        <p>Get your books delivered quickly</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-lock"></i>
+                        <h3>Secure Payment</h3>
+                        <p>Safe and secure transactions</p>
+                    </div>
+                    <div class="feature">
+                        <i class="fas fa-headset"></i>
+                        <h3>24/7 Support</h3>
+                        <p>We're here to help you</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="newsletter">
+            <div class="container">
+                <div class="newsletter-content">
+                    <h2>Subscribe to Our Newsletter</h2>
+                    <p>Stay updated with our latest releases and offers</p>
+                    <form id="newsletterForm">
+                        <input type="email" placeholder="Enter your email" required>
+                        <button type="submit" class="btn primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About BookShop</h3>
+                    <p>Your one-stop destination for all your reading needs. Discover new worlds through our vast collection of books.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@bookshop.com</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BookShop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="auth.js"></script>
+    <script src="books.js"></script>
+    <script src="index.js"></script>
+    <script>
+        // Load navigation
+        fetch('nav.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('nav-placeholder').innerHTML = data;
+                // Initialize auth after navigation is loaded
+                if (typeof initAuth === 'function') {
+                    initAuth();
+                }
+            });
+    </script>
+</body>
+</html> 

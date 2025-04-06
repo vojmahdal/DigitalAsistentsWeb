@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BookShop - Your Cart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Include navigation -->
+    <div id="nav-placeholder"></div>
+
+    <main>
+        <section class="cart-section">
+            <div class="container">
+                <h1>Your Shopping Cart</h1>
+                <div class="cart-container">
+                    <div class="cart-items">
+                        <!-- Cart items will be loaded dynamically -->
+                    </div>
+                    <div class="order-summary">
+                        <h3>Order Summary</h3>
+                        <div class="cart-items"></div>
+                        <div class="summary-details">
+                            <div class="summary-item">
+                                <span>Subtotal</span>
+                                <span id="subtotal">$0.00</span>
+                            </div>
+                            <div class="summary-item">
+                                <span>Shipping</span>
+                                <span id="shipping">$5.00</span>
+                            </div>
+                            <div class="summary-item total">
+                                <span>Total</span>
+                                <span id="total">$0.00</span>
+                            </div>
+                        </div>
+                        <button class="btn primary checkout-button">Proceed to Checkout</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About BookShop</h3>
+                    <p>Your one-stop destination for all your reading needs. Discover new worlds through our vast collection of books.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="categories.html">Categories</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> info@bookshop.com</li>
+                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 BookShop. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Load scripts -->
+    <script src="sampleBooks.js"></script>
+    <script src="initDB.js"></script>
+    <script src="auth.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        // Load navigation
+        document.addEventListener('DOMContentLoaded', async function() {
+            try {
+                // Load navigation
+                const navResponse = await fetch('nav.html');
+                const navData = await navResponse.text();
+                document.getElementById('nav-placeholder').innerHTML = navData;
+
+                // Initialize database
+                await initDB();
+                
+                // Initialize auth if available
+                if (typeof initAuth === 'function') {
+                    initAuth();
+                }
+
+                // Load cart items
+                await loadCartItems();
+
+                // Setup checkout button
+                const checkoutButton = document.querySelector('.checkout-button');
+                if (checkoutButton) {
+                    checkoutButton.addEventListener('click', handleCheckout);
+                }
+            } catch (error) {
+                console.error('Error initializing cart page:', error);
+            }
+        });
+    </script>
+</body>
+</html> 

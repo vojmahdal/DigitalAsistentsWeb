@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Details - BookShop</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">BookShop</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="books.html">Books</a></li>
+                <li><a href="categories.html">Categories</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+            <div class="auth-buttons">
+                <button id="loginBtn" class="btn primary">Login</button>
+                <button id="registerBtn" class="btn secondary">Register</button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="book-detail-page">
+        <div id="loadingIndicator" class="loading">
+            <i class="fas fa-spinner fa-spin"></i>
+            <span>Loading book details...</span>
+        </div>
+
+        <div id="errorMessage" class="error-message" style="display: none;"></div>
+
+        <div id="bookDetail" class="book-detail" style="display: none;">
+            <div class="book-header">
+                <div class="book-cover">
+                    <img id="bookImage" src="" alt="">
+                </div>
+                <div class="book-info">
+                    <h1 id="bookTitle"></h1>
+                    <p class="author" id="bookAuthor"></p>
+                    <div class="rating" id="bookRating"></div>
+                    <div class="price" id="bookPrice"></div>
+                    <div class="book-actions">
+                        <button id="addToCart" class="btn primary">Add to Cart</button>
+                        <button id="addToWishlist" class="btn secondary">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="book-content">
+                <div class="book-description">
+                    <h2>Description</h2>
+                    <p id="bookDescription"></p>
+                </div>
+
+                <div class="book-details">
+                    <h2>Book Details</h2>
+                    <div class="details-grid">
+                        <div class="detail-item">
+                            <span class="detail-label">Category:</span>
+                            <span id="bookCategory"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Publication Date:</span>
+                            <span id="bookDate"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">ISBN:</span>
+                            <span id="bookISBN"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Pages:</span>
+                            <span id="bookPages"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Publisher:</span>
+                            <span id="bookPublisher"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Language:</span>
+                            <span id="bookLanguage"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Dimensions:</span>
+                            <span id="bookDimensions"></span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Weight:</span>
+                            <span id="bookWeight"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-section">
+                    <h2>Reviews</h2>
+                    <div id="reviewsList" class="reviews-list"></div>
+
+                    <div class="review-form">
+                        <h3>Write a Review</h3>
+                        <form id="reviewForm">
+                            <div class="star-rating">
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                            <textarea id="reviewText" placeholder="Write your review here..." required></textarea>
+                            <button type="submit" class="btn primary">Submit Review</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About BookShop</h3>
+                <p>Your one-stop destination for all your reading needs. Discover new worlds through our vast collection of books.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="books.html">Books</a></li>
+                    <li><a href="categories.html">Categories</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>Email: info@bookshop.com</p>
+                <p>Phone: (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 BookShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts must be loaded in this specific order -->
+    <script src="auth.js"></script>
+    <script src="sampleBooks.js"></script>
+    <script src="initDB.js"></script>
+    <script src="book.js"></script>
+</body>
+</html> 
